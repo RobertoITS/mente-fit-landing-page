@@ -6,8 +6,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 
-
-
 export class NavbarComponent {
 
   @ViewChild('navbar') nav!: ElementRef
@@ -16,7 +14,9 @@ export class NavbarComponent {
   change = false
 
   ngAfterViewInit(){
+
     var sticky = this.nav.nativeElement.offsetTop
+
     window.onscroll = () => {
       if (window.pageXOffset >= sticky){
         this.nav.nativeElement.classList.add('sticky')
@@ -30,6 +30,25 @@ export class NavbarComponent {
       this.change = !this.change
       this.openNav()
     })
+
+    //! Al hacer click en cualquier area que no sea el header, toggle o el navbar, esconde el menu
+    //Controlamos todos desde aca, porque al hacerlo desde otro lado, no lo toma
+    document.onclick = (e) => {
+      const element = e.target as HTMLElement
+      if (element.id !== 'mySidenav' && element.id !== 'icon' && element.id !== 'navbar') {
+        if (this.change){
+          this.icon.nativeElement.classList.toggle('open')
+          this.sideNav.nativeElement.style.width = "0px"
+          this.change = !this.change
+        }
+      }
+      if (element.id == 'div') {
+        const div: HTMLElement = document.getElementById('div')!
+        div.classList.remove('show')
+        div.classList.add('hide')
+      }
+    }
+
   }
 
   openNav() {
@@ -41,17 +60,3 @@ export class NavbarComponent {
     }
   }
 }
-
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body
-openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.body.style.backgroundColor = "white";
-} */

@@ -1,6 +1,6 @@
 .img-hover{
   width: 400px;
-  height: auto;
+
   overflow: hidden;
 }
 
@@ -38,5 +38,4 @@ img:hover{
 .gone{
   visibility: hidden;
   display: none;
-
 }

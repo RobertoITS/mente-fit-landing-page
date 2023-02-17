@@ -1,0 +1,29 @@
+
+.to-top {
+  bottom: 0;
+  cursor: pointer;
+  margin: 0 8px 12px 0;
+  position: fixed;
+  right: 0;
+  opacity: 0;
+  z-index: 2000;
+  transition: 0.4s;
+}
+
+.to-top img {
+  width: 50px;
+}
+
+.show-scrollTop {
+  opacity: 1;
+}
+
+img {
+  transition: .2s;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+img:hover {
+  transform: scale(1.1) rotate(-10deg);
+}

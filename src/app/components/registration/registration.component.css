@@ -9,6 +9,7 @@
 }
 
 .reg-form {
+  width: 100vh;
   border: solid 1px rgba(187, 186, 186, 0.75);
   border-radius: 10px;
   padding: 20px 70px;
@@ -29,4 +30,40 @@
 
 .hide {
   transform: scale(0);
+}
+
+.bn{
+  background-color: #cb084f !important;
+  color: white !important;
+  transition: 0.5s;
+}
+.bn:hover{
+  background-color: #e77fa5 !important;
+}
+
+.button{
+  width: 140px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  color: #cb084f;;
+  border-radius: 24px;
+}
+
+input:focus{
+  border-color: #cb084fab;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #cb084f8c;
+  outline: 0 none;
+}
+
+.check:checked{
+  background-color: #cb084f6b;
+  border-color: #cb084f;
+}
+
+@media (max-width: 991px) {
+  .reg-form {
+    width: calc(100vh - 140px);
+    padding: 20px 30px;
+  }
 }

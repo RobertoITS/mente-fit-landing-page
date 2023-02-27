@@ -8,6 +8,7 @@ import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 export class RegistrationComponent {
   @ViewChild("div") div!: ElementRef
   @ViewChild("form") form!: ElementRef
+  @ViewChild("cancel") cancel!: ElementRef
 
   height!: number
   width!: number
@@ -32,5 +33,10 @@ export class RegistrationComponent {
   onWindowResize(){
     this.height = window.innerHeight
     this.width = window.innerWidth
+  }
+
+  hide(){
+    this.div.nativeElement.classList.add("hide")
+    this.div.nativeElement.classList.remove("show")
   }
 }
